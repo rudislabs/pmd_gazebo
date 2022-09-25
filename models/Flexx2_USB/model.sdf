@@ -41,7 +41,7 @@
           <image>
             <width>224</width>
             <height>172</height>
-            <format>L_INT16</format>
+            <format>L_INT8</format>
           </image>
           <clip>
             <near>0.1</near>
