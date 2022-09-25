@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.9'>
+  <model name='Flexx2_USB'>
+    <pose>0 0 .01 0 0 0</pose>
+    <self_collide>false</self_collide>
+    <static>false</static>
+    <link name="Flexx2_USB/base_link">
+      <inertial>
+        <pose>-0.0035 .023 0 0 0 0</pose>
+        <mass>0.0141</mass> <!-- m=.0141kg, Lx=.0109m, Ly=.0718m, Lz=.0194m -->
+        <inertia>
+          <ixx>0.0000064996</ixx> <!-- Ixx = m*(Ly**2+Lz**2)/12 -->
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000005818</iyy> <!-- Iyy = m*(Lx**2+Lz**2)/12 -->
+          <iyz>0</iyz>
+          <izz>0.0000061970</izz> <!-- Izz = m*(Lx**2+Ly**2)/12 -->
+        </inertia>
+      </inertial>
+      <visual name="Flexx2_USB/visual">
+        <pose>0 0 0 0 0 3.141592653589793238</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Flexx2_USB/meshes/Flexx2_USB.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="Flexx2_USB/collision">
+        <pose>-0.0035 .023 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0109 0.0718 0.0194</size>
+          </box>
+        </geometry>
+      </collision>
+      <sensor name="gray_image" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <camera>
+          <horizontal_fov>0.977384</horizontal_fov>
+          <image>
+            <width>224</width>
+            <height>172</height>
+            <format>L_INT16</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>4.0</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <topic>/royale_camera/gray_image</topic>
+      </sensor>
+      <sensor name="depth_image" type="depth_camera">
+        <pose>0 0 0 0 0 0</pose>
+        <camera>
+          <horizontal_fov>0.977384</horizontal_fov>
+          <image>
+            <width>224</width>
+            <height>172</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>4.0</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <topic>/royale_camera/depth_image</topic>
+      </sensor>
+      <gravity>true</gravity>
+      <velocity_decay/>
+    </link>
+  </model>
+</sdf>
